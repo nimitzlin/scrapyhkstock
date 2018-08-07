@@ -6,6 +6,7 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 import json
+from scrapy.exceptions import DropItem
 
 class StockNamePipeline(object):
 	def process_item(self, item, spider):
@@ -27,6 +28,11 @@ class StockInfoPipeline(object):
             self.file = open('stock.json', 'wb')
 
 	def process_item(self, item, spider):
+
+            d = dict(item)
+            if "|" in d["peratio"][0]:
+                raise DropItem("use less infop in %s" % d)
+
 	    line = json.dumps(dict(item)) + "\n"
             self.file.write(line)
             return item
