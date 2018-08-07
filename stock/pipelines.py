@@ -22,5 +22,14 @@ class StockNamePipeline(object):
 
 
 class StockInfoPipeline(object):
+
+        def __init__(self):
+            self.file = open('stock.json', 'wb')
+
 	def process_item(self, item, spider):
-		return item
+	    line = json.dumps(dict(item)) + "\n"
+            self.file.write(line)
+            return item
+
+	def close_spider(self, spider):
+		self.file.close()
