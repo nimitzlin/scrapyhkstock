@@ -13,3 +13,5 @@ class StockItem(scrapy.Item):
     num = scrapy.Field()
     link = scrapy.Field()
     dividend  = scrapy.Field()
+    peratio= scrapy.Field()
+    roe = scrapy.Field()
