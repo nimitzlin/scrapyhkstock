@@ -8,12 +8,17 @@
 
 pip install scrapy
 pip install scrapy-splash
+pip install pymongo
 apt-get install docker-ce
 
 ##运行
 
 sudo docker pull scrapinghub/splash
 sudo docker run -p 8050:8050 scrapinghub/splash
+service mongodb start
+
 
 配置 settings.py 里面的splash地址为上面docker的地址
+里面的 mongodb 的地址
+
 python main.py
