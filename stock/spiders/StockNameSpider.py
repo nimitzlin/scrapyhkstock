@@ -14,7 +14,7 @@ class StockNameSpider(scrapy.Spider):
 		
 		for sel in response.xpath('//li//a[contains(@href, "http://quote.eastmoney.com/hk")]/@href'):
                         #debug
-                        if self.count >= 3:
+                        if self.count >= 10000:
                             continue
                         #debug
 			link = sel.extract()

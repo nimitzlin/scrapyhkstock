@@ -32,3 +32,7 @@ DOWNLOADER_MIDDLEWARES = {
 
 DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
 
+MONGO_HOST = "127.0.0.1"
+MONGO_PORT = 27017
+MONGO_DB = "Spider"
+MONGO_COLL = "stock"

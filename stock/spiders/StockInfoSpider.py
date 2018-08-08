@@ -22,7 +22,7 @@ class StockInfoSpider(scrapy.Spider):
         def start_requests(self):
             # use splash to render js
             splash_args = {
-                                'wait': 0.5,
+                                'wait': 1,
             }
             for start_url in self.urls:
                 request = SplashRequest(start_url, self.parse, endpoint='render.html', args=splash_args)
